@@ -20,8 +20,6 @@ RUN /home/user/steam/steamcmd.sh +force_install_dir /home/user/satisfactory +log
 
 RUN mkdir -p /home/user/.config/Epic/FactoryGame/Saved/
 
-COPY --chown=user --chmod=755 build/run.sh /home/user/satisfactory
-
 RUN printf "#!/bin/sh\n/home/user/steam/steamcmd.sh +force_install_dir /home/user/satisfactory +login anonymous +app_update 1690800 validate +quit\nexec ./Engine/Binaries/Linux/FactoryServer-Linux-Shipping FactoryGame" > /home/user/satisfactory/run.sh
 
 VOLUME ["/home/user/.config/Epic/FactoryGame/Saved/"]
